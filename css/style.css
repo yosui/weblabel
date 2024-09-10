@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
-    margin: 0px 24px;
+    margin: 0px 40px;
     padding: 0;
 }
 
@@ -33,8 +33,7 @@ header {
     color: #333;
     text-align: left;
     font-size: 24px;
-    margin-left: 20px;
-    margin-right: 20px;
+
 }
 
 /* Track Section */
@@ -73,14 +72,31 @@ header {
 
 /* Artist Image */
 
+.artist {
+    width: 100%;
+    height: auto;
+}
+
 .artist img {
     margin-top: 20px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: -16px;
+
 }
 
 
+.artist-info {
+    float: left;
+    width: 20%;
+    height: 160px;    
+}
+
+.donation {
+    width: 80%;
+    height: 160px;
+    float: left;
+}
 
 /* Footer */
 footer {
@@ -116,10 +132,12 @@ footer {
 }
 
 .track-item img {
-    width: 160px;
-    height: 160px;
+    width: auto;
+    height: auto;
     border-radius: 10px;
     margin-right: 15px;
+    display: block;
+    object-fit: cover;
 }
 
 .track-item strong {
@@ -136,7 +154,6 @@ footer {
 
 .track-item a {
     color: rgb(44, 44, 255);
-    padding: 5px 10px;
     border-radius: 3px;
 }
 
@@ -153,13 +170,13 @@ footer {
     }
 
     .download-item a {
-        display: block;
         margin-bottom: 10px;
     }
 
     .track-item img {
-        width: 80px;
-        height: 80px;
+        width: 400px;
+        height: 400px;
+        object-fit: contain;
     }
 }
 

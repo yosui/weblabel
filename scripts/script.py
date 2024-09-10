@@ -47,28 +47,30 @@ for track in tracks:
     </head>
     <body>
         <header>
-            <h1>{track['name']} by {track['artist']}</h1>
+            <h1>Weblabel</h1>
         </header>
-        
+            <h3>{track['name']} - {track['artist']}</h3>
+            <div class="artist">
+                <id class="artist-info">
+                    <img src="{track['artist-img']}" alt="{track['artist']} image">
+                    <p>{track['artist']}</p>
+                </id>
+                <span class='donation'>
+                    <p>Donate</p>
+                    <li>{track['donation1']}</li>
+                    <li>{track['donation2']}</li>
+                </span>
+            </div>        
         <section id="track-details">
             <div class="track-item">
                 <img src="{track['image']}" alt="{track['name']} cover image">
-                <p>{track['description']}</p>
             </div>
             <div class="download-item">
-                <a href="{track['torrent']}">Download Torrent</a> | 
+                <a href="{track['torrent']}">Download Torrent</a> 
                 <a href="{track['magnet']}">Magnet Link</a>
             </div>
+            <p>{track['description']}</p>
             </section>
-
-            <div class="artist">
-                <img src="{track['artist-img']}" alt="{track['artist']} image">
-                <p>
-                    <ul>Donate to {track['artist']}</ul>
-                    <li>{track['donation1']}</li>
-                    <li>{track['donation2']}</li>
-                </p>
-            </div>
 
     </body>
     </html>
