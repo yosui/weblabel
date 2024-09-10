@@ -6,10 +6,15 @@ tracks = [
         "name": "Track 1",
         "artist": "Artist 1",
         "artist-img": "https://pbs.twimg.com/profile_images/1828810812187930624/BYrwVKyc_400x400.jpg",
-        "description": "A groovy track by Artist 1.",
+        "description": "A groovy track by Artist 1.It it it iti tt tiasgjuoajgfioaejgfoeiagjfioeajfgioe;afgioeajoijoiajajoojiao",
         "image": "https://f4.bcbits.com/img/a1778498018_16.jpg",
         "torrent": "torrents/track1.torrent",
         "magnet": "magnet:?xt=urn:btih:HASH1&dn=track1.mp3&tr=http://tracker.example.com:6969/announce",
+        "track1-name": "track1name",
+        "track2-name": "Super great track2",
+        "track3-name": "Amsterdam 3",
+        "track4-name": "TokyoTokyoTokyo love Tokyo45",
+        "track5-name": "uuuuuuuuuuuuu",
         "donation1": "0xgajioeajiogeairajiaigejiajiajja",
         "donation2": ""
     },
@@ -21,6 +26,11 @@ tracks = [
         "image": "https://f4.bcbits.com/img/a1778498018_16.jpg",
         "torrent": "torrents/track2.torrent",
         "magnet": "magnet:?xt=urn:btih:HASH2&dn=track2.mp3&tr=http://tracker.example.com:6969/announce",
+        "track1-name": "track1name",
+        "track2-name": "12",
+        "track3-name": "3",
+        "track4-name": "45",
+        "track5-name": "track5 name",
         "donation1": "jfaijiajidafijiaj[]",
         "donation2": "faj;aijaiooajioi"
     }
@@ -51,15 +61,59 @@ for track in tracks:
         </header>
         <section id="track-details">
             <h3>{track['name']} - {track['artist']}</h3>
-            <div class="track-item">
-                <img src="{track['image']}" alt="{track['name']} cover image">
-            </div>
-            <div class="download-item">
-                <a href="{track['torrent']}">Download Torrent</a> 
-                <a href="{track['magnet']}">Magnet Link</a>
+            <div class="album">
+                <div class="track-item">
+                    <img src="{track['image']}" alt="{track['name']} cover image">
+                        <audio src="../assets/audio/{track['name'].replace(' ', '_').lower()}.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <div class="playstop">
+                            <div id="play">play ></div>
+                            <div id="stop">stop II</div>
+                        </div>
+                    <div class="download-item">
+                        <a href="{track['torrent']}">Download Torrent</a> 
+                        <a href="{track['magnet']}">Magnet Link</a>
+                    </div>
+                </div>
+            </div>      
+
+            <div class="other-tracks">
+                <ul>
+                    <li>
+                        1. {track['track1-name']}
+                        <audio src="../assets/audio/{track['track1-name'].replace(' ', '_').lower()}.mp3" type="audio/mpeg">
+                        </audio>
+                        <div id="play">play ></id>
+                    </li>
+                    <li>
+                        2. {track['track2-name']}
+                        <audio src="../assets/audio/{track['track2-name'].replace(' ', '_').lower()}.mp3" type="audio/mpeg">
+                        </audio>
+                        <div id="play">play ></id>
+                    </li>
+                    <li>
+                        3. {track['track3-name']}
+                        <audio src="../assets/audio/{track['track3-name'].replace(' ', '_').lower()}.mp3" type="audio/mpeg">
+                        </audio>
+                        <div id="play">play ></id>
+                    </li>
+                    <li>
+                        4. {track['track4-name']}
+                        <audio src="../assets/audio/{track['track4-name'].replace(' ', '_').lower()}.mp3" type="audio/mpeg">
+                        </audio>
+                        <div id="play">play ></id>
+                    </li>
+                    <li>
+                        5. {track['track5-name']}
+                        <audio src="../assets/audio/{track['track5-name'].replace(' ', '_').lower()}.mp3" type="audio/mpeg">
+                        </audio>
+                        <div id="play">play ></id>
+                    </li>                                                                                
+                </ul>
             </div>
             <p>{track['description']}</p>
-            </section>
+        </section>
 
             <div class="artist">
                 <div class="artist-info">
