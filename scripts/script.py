@@ -50,6 +50,7 @@ for track in tracks:
             <h1>Weblabel</h1>
         </header>
         <section id="track-details">
+            <h3>{track['name']} - {track['artist']}</h3>
             <div class="track-item">
                 <img src="{track['image']}" alt="{track['name']} cover image">
             </div>
@@ -60,7 +61,6 @@ for track in tracks:
             <p>{track['description']}</p>
             </section>
 
-          <h3>{track['name']} - {track['artist']}</h3>
             <div class="artist">
                 <div class="artist-info">
                     <img src="{track['artist-img']}" alt="{track['artist']} image">
