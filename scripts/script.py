@@ -3,7 +3,7 @@ import os
 # トラックデータの定義
 tracks = [
     {
-        "name": "Track 1",
+        "name": "faelaeuifawuioeauihhuafh",
         "artist": "Artist 1",
         "artist-img": "https://pbs.twimg.com/profile_images/1828810812187930624/BYrwVKyc_400x400.jpg",
         "description": "A groovy track by Artist 1.It it it iti tt tiasgjuoajgfioaejgfoeiagjfioeajfgioe;afgioeajoijoiajajoojiao",
@@ -53,12 +53,17 @@ for track in tracks:
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{track['name']} - {track['artist']}</title>
+        <link rel="stylesheet" href="https://unpkg.com/98.css">
         <link rel="stylesheet" href="../css/style.css">
     </head>
     <body>
-        <header>
-            <h1>Weblabel</h1>
-        </header>
+        <div class="title-bar" >
+            <div class="title-bar-text">Weblabel</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+
         <section id="track-details">
             <h3>{track['name']} - {track['artist']}</h3>
             <div class="album">
@@ -96,7 +101,7 @@ for track in tracks:
                         3. {track['track3-name']}
                         <audio src="../assets/audio/{track['track3-name'].replace(' ', '_').lower()}.mp3" type="audio/mpeg">
                         </audio>
-                        <div id="play">play ></id>
+                        <button id="play">play ></button>
                     </li>
                     <li>
                         4. {track['track4-name']}
@@ -147,33 +152,55 @@ with open(index_filepath, "w", encoding="utf-8") as index_file:
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Weblabel</title>
         <link rel="stylesheet" href="css/style.css">
+            <link rel="stylesheet" href="https://unpkg.com/98.css">
     </head>
     <body>
-        <header>
-            <h1>Weblabel</h1>
-        </header>
-
-        <section id="about">
-            <ul>"Weblabel"
-                <li>1. is a music label for borderless artists who can create grooves.</li>
-                <li>2. contributes to the borderless music culture and supports artists who believe that love, respect, safety, and privacy are important for everyone.</li>
-                <li>3. is a netlabel which is built on a decentralized stack, IPFS, Fleek and Torrent to ensure its longevity.</li>
-                <li>4. Artists don't use main DJ name here</li>
-            </ul>
+        <div class="title-bar">
+            <div class="title-bar-text">Weblabel</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+            <div class="window" style="max-width: 2500px;">
+                <div class="title-bar">
+                    <div class="title-bar-text">What is Weblabel?</div>
+                </div>
+                <div class="window-body">
+                    <ul>
+                        <li>1. is a music label for borderless artists who can create grooves.</li>
+                        <li>2. contributes to the borderless music culture and supports artists who believe that love, respect, safety, and privacy are important for everyone.</li>
+                        <li>3. is a netlabel which is built on a decentralized stack, IPFS, Fleek and Torrent to ensure its longevity.</li>
+                        <li>4. Artists don't use main DJ name here</li>
+                    </ul>
+                </div>
+                <div class="status-bar">
+                    <p class="status-bar-field">~~~~</p>
+                    <p class="status-bar-field">+=+=+=+</p>
+                    <p class="status-bar-field"><><>></p>
+                </div>
+            </div>
         </section>
 
-        <section id="track">
-            <h2>Tracks</h2>
-            <ul>
+
+
     """
     # トラックデータを基に、各トラックをindex.htmlに追加
     for track in tracks:
         index_content += f"""
-        <div class="track-item">
+        <div class="window">
+            <div class="title-bar">
+                <div class="title-bar-text">{track['name']} | {track['artist']}</div>
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button aria-label="Close"></button>
+                </div>
+            </div>
+           
             <img src="{track['image']}" alt="{track['name']} cover image">
-            <div class="button-lists">
-                <strong>{track['name']}</strong>
-            <a href="weblabel_pages/{track['name'].replace(' ', '_').lower()}.html">Details</a>
+            <div class="button">
+                <a href="weblabel_pages/{track['name'].replace(' ', '_').lower()}.html" class="button-link"></a>
+                <button>Details</button>
             </div>
         </div>
         """
