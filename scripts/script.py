@@ -49,18 +49,6 @@ for track in tracks:
         <header>
             <h1>Weblabel</h1>
         </header>
-            <h3>{track['name']} - {track['artist']}</h3>
-            <div class="artist">
-                <id class="artist-info">
-                    <img src="{track['artist-img']}" alt="{track['artist']} image">
-                    <p>{track['artist']}</p>
-                </id>
-                <span class='donation'>
-                    <p>Donate</p>
-                    <li>{track['donation1']}</li>
-                    <li>{track['donation2']}</li>
-                </span>
-            </div>        
         <section id="track-details">
             <div class="track-item">
                 <img src="{track['image']}" alt="{track['name']} cover image">
@@ -72,6 +60,18 @@ for track in tracks:
             <p>{track['description']}</p>
             </section>
 
+          <h3>{track['name']} - {track['artist']}</h3>
+            <div class="artist">
+                <div class="artist-info">
+                    <img src="{track['artist-img']}" alt="{track['artist']} image">
+                    <p>{track['artist']}</p>
+                </div>
+                <div class='donation'>
+                    <p>Donate</p>
+                    <li>{track['donation1']}</li>
+                    <li>{track['donation2']}</li>
+                </span>
+            </div>        
     </body>
     </html>
     """

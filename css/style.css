@@ -3,13 +3,14 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
-    margin: 0px 40px;
-    padding: 0;
+    margin: 0px 64px;
+    padding: 0 20px;
 }
 
-
-ul, li{
+ul, li {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -24,16 +25,16 @@ a:hover {
 /* Container */
 .container {
     margin: 0 auto;
-    padding: 0 20px; /* Padding for both left and right */
-    max-width: 1200px; /* Limiting the width for larger screens */
+    padding: 0 20px;
+    max-width: 1200px;
 }
 
 /* Header */
 header {
     color: #333;
     text-align: left;
-    font-size: 24px;
-
+    font-size: 20px;
+    padding: 20px 0;
 }
 
 /* Track Section */
@@ -42,60 +43,62 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 auto;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 500px;
+    max-width: 800px;
 }
 
 .track-item img {
-    max-width: 100%;
-    height: auto;
+    max-width: 400px;
     border-radius: 10px;
+    object-fit: cover;
+    text-align: center;
+    margin: auto;
+    display: block;
 }
 
 .track-item p {
     font-size: 16px;
-    margin-top: 10px;
+    margin: 0 0 10px;
 }
 
 .download-item a {
     display: inline-block;
-    margin-right: 10px;
     background-color: #0066cc;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
+    margin-right: 10px;
 }
 
-.download-item a:hover {
-    background-color: #003366;
-}
+
 
 /* Artist Image */
-
-.artist {
-    width: 100%;
-    height: auto;
+.artist-info{
+    width: 200px;
+    float: left;
 }
 
 .artist img {
     margin-top: 20px;
     width: 100px;
     height: 100px;
-    margin-bottom: -16px;
-
-}
-
-
-.artist-info {
-    float: left;
-    width: 20%;
-    height: 160px;    
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .donation {
-    width: 80%;
-    height: 160px;
     float: left;
+    width: auto;
 }
 
 /* Footer */
@@ -105,79 +108,71 @@ footer {
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    position: relative; /* Fixed footer replaced by relative to support smaller screens */
 }
 
 /* Index page styles */
 #about ul, #track ul {
     list-style-type: none;
     padding: 0;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 #about li {
     margin-bottom: 10px;
-    line-height: 2;
+    line-height: 1.6;
     font-size: 16px;
-}
-
-.track-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-right: 40px;
-    float: left;
-
-}
-
-.track-item img {
-    width: auto;
-    height: auto;
-    border-radius: 10px;
-    margin-right: 15px;
-    display: block;
-    object-fit: cover;
-}
-
-.track-item strong {
-    font-size: 18px;
 }
 
 #track h2 {
     font-size: 24px;
     text-align: left;
-    margin-top: 20px;
     padding-left: 20px;
-    padding-right: 20px;
+    margin: 20px 0;
 }
 
 .track-item a {
-    color: rgb(44, 44, 255);
+    color: #0066cc;
     border-radius: 3px;
 }
 
-
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .track-item {
+        flex-direction: column;
         text-align: center;
-        float: left;
-    }
-
-    #track-details {
-        padding: 10px;
-    }
-
-    .download-item a {
-        margin-bottom: 10px;
     }
 
     .track-item img {
-        width: 400px;
-        height: 400px;
-        object-fit: contain;
+        max-width: 250px;
+    }
+
+    .download-item a {
+        margin: 10px 0;
     }
 }
 
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0 10px;
+    }
 
+
+
+    .track-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .track-item img {
+        max-width: 200px;
+    }
+
+    .download-item a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .artist img {
+        width: 80px;
+        height: 80px;
+    }
+}
