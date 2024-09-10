@@ -70,7 +70,7 @@ for track in tracks:
                     <p>Donate</p>
                     <li>{track['donation1']}</li>
                     <li>{track['donation2']}</li>
-                </span>
+                </div>
             </div>        
     </body>
     </html>
@@ -115,13 +115,13 @@ with open(index_filepath, "w", encoding="utf-8") as index_file:
     # トラックデータを基に、各トラックをindex.htmlに追加
     for track in tracks:
         index_content += f"""
-        <li class="track-item">
+        <div class="track-item">
             <img src="{track['image']}" alt="{track['name']} cover image">
-            <id class="button-lists">
+            <div class="button-lists">
                 <strong>{track['name']}</strong>
             <a href="weblabel_pages/{track['name'].replace(' ', '_').lower()}.html">Details</a>
-            </id>
-        </li>
+            </div>
+        </div>
         """
 
     index_content += """
