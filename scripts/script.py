@@ -21,8 +21,8 @@ tracks = [
         "image": "https://f4.bcbits.com/img/a1778498018_16.jpg",
         "torrent": "torrents/track2.torrent",
         "magnet": "magnet:?xt=urn:btih:HASH2&dn=track2.mp3&tr=http://tracker.example.com:6969/announce",
-        "donation1": "https://etherscan.io/address/artist2_eth_address",
-        "donation2": "https://etherscan.io/address/artist2_eth_address"
+        "donation1": "jfaijiajidafijiaj[]",
+        "donation2": "faj;aijaiooajioi"
     }
 ]
 
