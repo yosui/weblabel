@@ -18,8 +18,7 @@ type Album = {
     artistImg?: string;
     donation1: string;        
     donation2?: string;  
-  }
-
+  }gi
   const AlbumInfos: Album[] = [
     {
       name: "Weblabel01",
