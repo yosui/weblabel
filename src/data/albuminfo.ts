@@ -32,11 +32,6 @@ type Album = {
           artist: "Galaxy Semiconductor",
           previewUrl: "../assets/audio/pico_pico.mp3",
         },
-        {
-          name: "Track 2",
-          artist: "Galaxy Semiconductor",
-          previewUrl: "../assets/audio/track2.mp3",
-        },
       ],
       artist: [
         {
