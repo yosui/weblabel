@@ -3,8 +3,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   color: #333;
-  margin: 0;
-  padding: 0;
 
 }
 
@@ -86,13 +84,12 @@ header {
 
 /* Track Details Section */
 #track-details {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 20px auto;
-  max-width: 1200px;
+  justify-content: center;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
+  width: 95%;
 }
 
 h3 {
@@ -102,40 +99,40 @@ h3 {
 
 /* Album Section */
 .album {
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-bottom: 20px;
-  flex-direction: column;
   align-items: center;
-  width: auto;
-  float: left;
   font-weight: bold;
   background-color: #2b20ff;
-  margin-right: 10px;
   border-top: 4px solid #efefef;
   border-right: 4px solid #383838;
   border-bottom: 4px solid #656565;
   border-left: 4px solid #c7c7c7;
   border-radius: 0;
-  padding: 12px 20px;
+  padding: 32px 32px;
   background: #afafaf;
 
 }
 
 .track-item {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
-  float: left;
+  width: 40%;
   font-weight: bold;
+  margin: 0 24px;
   background-color: #2b20ff;
-  margin: 32px;
   border-top: 4px solid #efefef;
   border-right: 4px solid #383838;
   border-bottom: 4px solid #656565;
   border-left: 4px solid #c7c7c7;
   border-radius: 0;
-  padding: 12px 20px;
+  padding: 12px 32px;
   background: #afafaf;
 
 }
@@ -195,23 +192,26 @@ audio {
 /* Other Tracks Section */
 .other-tracks {
   margin-top: 20px;
+  width: 40%;
+  height: 100%;
   padding-left: 0;
   display: flex;
-  justify-content: space-between;
+  flex-flow: column;
+
 }
 
 .other-tracks ul {
   position: relative;
   padding: 0;
-  margin-top: 40px;
   max-width: 100%;
 
 }
 
 .other-tracks li {
   position: relative;
+  width: 100%;
   margin-bottom: 15px;
-  font-size: 16px;
+  font-size: 1.4vw;
   padding: 5px;
   display: flex;
   justify-content: space-between;
@@ -230,28 +230,36 @@ audio {
 }
 
 
-#play {
-  max-width : 30%;
+.play {
+  position: relative;
   font-weight: bold;
-  color: #2b20ff;
+  padding: 3px 3px;
   border-top: 4px solid #efefef;
   border-right: 4px solid #383838;
   border-bottom: 4px solid #656565;
   border-left: 4px solid #c7c7c7;
   border-radius: 0;
-  padding: 6px 9px;
   background: #afafaf;
   margin-bottom: 10px; /* Add space between buttons and download links */
 }
+
+.play p{
+  margin: 2px 20px;
+  padding: 4px 4px;
+  text-align: center;
+  font-weight: bold;
+  color: #2b20ff;
+}
+
 
 
 /* Artist Section */
 .artist {
   position: relative;
+  width: 30px;
   padding-top: 20px;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-flow: column;
 }
 
 .artist-info {
@@ -270,6 +278,7 @@ audio {
 }
 
 .donation {
+  position: relative;
   margin-top: 0px;
 }
 
@@ -315,15 +324,26 @@ footer {
 
   .album {
       position: relative;
-      width: 100%;
+      width: 90%;
       margin: 0px ;
-      padding: 0px;
-      display: flex;
-      justify-content: center;
+      padding: 8px;
+      display:flex;
+      flex-flow: column;
   }
 
+  .track-item {
+    position: relative;
+    width: 75%;
+    margin: 16px;
+    margin-top: 20px;
+}
 
-  .other-tracks{
+.track-item p{
+  font-size: 3vw;
+}
+
+
+.other-tracks{
       margin: 0;
   }
 
@@ -333,19 +353,13 @@ footer {
 
 
    p, a{
-      font-size: 4vw}
+      font-size: 3vw}
 
   #play{
       font-size: 4vw;
   }
 
-  .track-item {
-      position: relative;
-      width:80%;
-      margin: 0;
-      margin-top: 20px;
-  }
-
+  
   .download-item a {
       position: relative;
       padding: 8px 16px;
@@ -353,15 +367,17 @@ footer {
 
   .other-tracks {
       position: relative;
+      width: 80%;
       margin-top: 10px;
   }
 
-  .other-tracks p{
-      margin-right: 15vw;
+  .play p{
+      padding: 8px 12px;
+      margin: 0.6vw 2vw;
   }
   .other-tracks #play{
-      text-align: center;
-      padding: 12px 24px;
+      margin: 0 auto;
+      padding: 0;
       margin: 12px 12px;
   }
 
@@ -369,25 +385,34 @@ footer {
       margin-top: 0px;
       margin-bottom: 40px;
       position: relative;
-      display: flex;
-      justify-content: space-between;
-      
+      width: 100%;
+      display: flex;      
   }
 
   .artist-info {
       margin: 0 auto;
       position: relative;
+      display:flex;
+      justify-content: center;
 
   }
 
+  .artist-name-donation{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+  }
+  .artist-name-donation p{
+    padding: 8px;
+    width: 100%;
+    font-size: 3vw;
+  }
   .artist-info img {
-      position: relative;
-      width: 40px;
-      height: 40px;
+      width: 16vw;
+      height: 16vw;
   }
 
   .donation{
-      margin: 0 auto;
   }
 
   .donation ul, li{
