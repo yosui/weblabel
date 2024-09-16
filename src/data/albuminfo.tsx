@@ -2,7 +2,8 @@ type Album = {
     name: string;                    
     description?: string;     
     image: string;            
-    torrent: string;         
+    torrent: string;
+    mp3: string;       
     tracks: Track[];          
     artist: Artist[];
   };
@@ -26,11 +27,12 @@ type Album = {
       description: "",
       image: "/assets/image/track/weblabel01.png",
       torrent: "/assets/torrents/Weblabel01.torrent",
+      mp3: "/assets/mp3/Weblabel01(mp3).zip",
       tracks: [
         {
           name: "Pico Pico",
           artist: "Galaxy Semiconductor",
-          previewUrl: "/assets/audio/pico_pico.mp3",
+          previewUrl: "/assets/preview/pico_pico.mp3",
         },
       ],
       artist: [

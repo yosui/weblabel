@@ -175,6 +175,7 @@ audio {
 /* Download Section */
 .download-item a {
   display: inline-block;
+  width: 30%;
   font-weight: bold;
   color: #2b20ff;
   margin-right: 10px;
@@ -185,13 +186,14 @@ audio {
   border-bottom: 4px solid #656565;
   border-left: 4px solid #c7c7c7;
   border-radius: 0;
-  padding: 12px 20px;
+  padding: 8px 16px;
   background: #afafaf;
   font-size: 1.2vw;
 }
 
 .download-item a:hover {
   background-color: #ccc;
+  cursor: pointer;
 }
 
 /* Other Tracks Section */
@@ -246,6 +248,7 @@ audio {
   border-radius: 0;
   background: #afafaf;
   margin-bottom: 10px; /* Add space between buttons and download links */
+  cursor: pointer;
 }
 
 .play p{
