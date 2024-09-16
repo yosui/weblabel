@@ -3,7 +3,6 @@ import About from './pages/about';
 import Header from './component/header';
 import Home from './pages/home';
 import AlbumDetail from './pages/detail';
-import Albumlist from './component/albumcard';
 
 
 function App() {
