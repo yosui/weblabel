@@ -376,6 +376,7 @@ footer {
   .download-item a {
       position: relative;
       padding: 8px 16px;
+      font-size: 2.5vw;
   }
 
   .other-tracks {
@@ -385,7 +386,7 @@ footer {
   }
 
   .play p{
-      padding: 8px 12px;
+      padding: 2px 12px;
       margin: 0.6vw 2vw;
   }
   .other-tracks #play{
