@@ -22,7 +22,7 @@ const AlbumDetail: React.FC = () => {
           <img src={album.image} alt={`${album.name} cover image`} />
 
           <div className="download-item">
-            <a href={album.torrent}>Download (Torrent)</a> 
+            <a href={album.torrent} download>Download (Torrent)</a> 
           </div>
         </div>    
 

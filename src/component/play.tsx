@@ -10,14 +10,20 @@ const Play: React.FC<PlayProps> = ({ previewUrl }) => {
 
   const handlePlay = () => {
     if (audioRef.current) {
-      audioRef.current.play();
+      // Safariのためのエラーハンドリングを追加
+      audioRef.current.play().catch((error) => {
+        console.error("Failed to play audio:", error);
+      });
     }
   };
 
   return (
     <> 
-      <audio ref={audioRef} src={AlbumInfos[0].tracks[0].previewUrl}></audio>
-      <div class="play" onClick={handlePlay}>
+      <audio ref={audioRef}>
+        <source src={AlbumInfos[0].tracks[0].previewUrl} type="audio/mpeg" />
+        Sorry, your browser does not support.
+      </audio>
+      <div className="play" onClick={handlePlay}>
         <p>{'Play >'}</p>
       </div>
     </>
@@ -25,6 +31,3 @@ const Play: React.FC<PlayProps> = ({ previewUrl }) => {
 };
 
 export default Play;
-
-
-// need to change 19 Line
