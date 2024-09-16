@@ -13,7 +13,7 @@ function Header() {
         </div>
         
         <Link to="/">
-        <img src="assets/image/weblabel.svg" alt="Weblabel" className="logo" />
+        <img src="/assets/image/weblabel.svg" alt="Weblabel" className="logo" />
         </Link>
     </>
   );
