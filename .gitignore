@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Foundry
+.DS_STORE
+/target
+out/
+out.json
+cache/
