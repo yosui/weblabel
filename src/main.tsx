@@ -6,7 +6,6 @@ import { WagmiProvider } from 'wagmi'
 
 
 import App from './App.tsx'
-import Header from './component/header.tsx'
 
 import { config } from './wagmi.ts'
 

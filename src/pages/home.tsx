@@ -22,9 +22,14 @@ function Home() {
             <p className="status-bar-field">---About---</p>
             </Link>
 
-          <a href="./weblabel_pages/zoo.html">
+            <Link to="/engrave">
+            <p className="status-bar-field">---Engrave---</p>
+            </Link>
+
+          <a href="#">
             <p className="status-bar-field">zoo</p>
           </a>
+
           <p className="status-bar-field">&lt;&gt;&lt;&gt;&gt;&gt;</p>
         </div>
       </div>

@@ -11,4 +11,15 @@ contract Counter {
     function increment() public {
         number++;
     }
+
+    function decrement() public {
+
+    if (number == 0) {
+    revert("Counter cannot be decremented below 0.");
+    }
+
+    number++;
+
+    }
 }
+
