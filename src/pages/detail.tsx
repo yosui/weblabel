@@ -15,7 +15,21 @@ const AlbumDetail: React.FC = () => {
 
   return (
     <>
+    <div className="window" style={{ maxWidth: '2500px' }}>
+       <div className="title-bar">
+          <div className="title-bar-text">Information</div>
+        </div>
+        <div className="window-body">
+          <ul>
+            <li>
+              We reccomend PC or Android to listen music
+            </li>
+          </ul>
+        </div>
+        </div>
+
     <section id="track-details">
+
       <div className="album">
         <div className="track-item">
           <p>{album.name} - {album.artist[0].artist}</p>
