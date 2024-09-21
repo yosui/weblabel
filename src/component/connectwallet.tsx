@@ -1,67 +1,36 @@
-import { useAccount, useConnect, useDisconnect } from 'wagmi';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { useAccount, useDisconnect, useConnect } from 'wagmi';
+import { injected } from 'wagmi/connectors'
 
 
 function ConnectWallet() {
-  const account = useAccount();
-  const { connectors, connect, status, error } = useConnect();
+  const { address, isConnected, chainId } = useAccount();  // ウォレットの接続状態を取得
   const { disconnect } = useDisconnect();
+  const { connect } = useConnect();
+
 
   return (
-    <>
+    <div className="window" style={{ maxWidth: '800px' }}>
+      <div className="title-bar">
+        <div className="title-bar-text">Connect Wallet (EVM only)</div>
+      </div>
 
-    <div className="window" style={{ maxWidth: '320px' }}>
+      <p>Address: {address ? JSON.stringify(address) : "Not connected"}</p>
+      <p>Status: {isConnected ? 'Connected' : 'Not connected'}</p>
 
-    <div className="title-bar">
-      <div className="title-bar-text">Connect Wallet(EVM only)</div>
+      <div className="connect-button">
+        {isConnected ? (
+          <button type="button" onClick={() => disconnect()}>
+            Disconnect
+          </button>
+        ) : (
+          <button type="button" onClick={() => connect( { connector: injected() })}>
+            Connect
+          </button>
+        )}
+      </div>
+
+      <p className="status-bar-field">ChainId: {chainId}</p>
     </div>
-
-
-
-        <p>Address: {JSON.stringify(account.addresses)}</p>
-        <p>Status: {account.status}</p>
-
-
-    <div className="window-body">
-      <fieldset>
-        <legend>Select your wallet to connect:</legend>
-          <ul className="field-row">
-          {connectors.map((connector) => (
-                <li className="select-wallet"
-                  key={connector.id}
-                  onClick={() => connect({ connector })}
-                >
-                  {connector.name},
-                </li>    
-              ))}
-          </ul>
-      </fieldset>
-    </div>
-
-      
-      <div className='connect-button'>
-        {account.status === 'connected' && (
-        <button type="button" onClick={() => disconnect()}>
-          Disconnect
-        </button>
-      )}
-      </div>
-
-      <div className='status-ver'>
-      <p className="status-bar-field">ChainId: {account.chainId}</p>
-      <p className="status-bar-field">Message: {error?.message}</p>
-
-      </div>
-      
-      
-      
-      
-      
-      
-      </div>
-
-
-    </>
   );
 }
 
