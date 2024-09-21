@@ -51,8 +51,26 @@ header {
 .window-body .select-wallet{
   font-size: 13px;
   color: blue;
-  
 } 
+
+.connect-button {
+
+ margin: 16px;
+}
+
+.select-wallet:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.select-wallet ul{
+  display: block;
+
+}
+
+.select-wallet li{
+  float:none;
+}
 
 .window img{
   position: relative;

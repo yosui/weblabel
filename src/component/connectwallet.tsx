@@ -13,7 +13,7 @@ function ConnectWallet() {
     <div className="window" style={{ maxWidth: '320px' }}>
 
     <div className="title-bar">
-      <div className="title-bar-text">Connect Wallet</div>
+      <div className="title-bar-text">Connect Wallet(EVM only)</div>
     </div>
 
 
@@ -23,18 +23,20 @@ function ConnectWallet() {
 
 
     <div className="window-body">
-    <p> Select wallet:</p>
-      <ul>    
+      <fieldset>
+        <legend>Select your wallet to connect:</legend>
+          <ul className="field-row">
           {connectors.map((connector) => (
-          <li className="select-wallet"
-            key={connector.id}
-            onClick={() => connect({ connector })}
-          >
-            {connector.name}
-          </li>    
-        ))}
-       </ul>
-       </div>
+                <li className="select-wallet"
+                  key={connector.id}
+                  onClick={() => connect({ connector })}
+                >
+                  {connector.name},
+                </li>    
+              ))}
+          </ul>
+      </fieldset>
+    </div>
 
       
       <div className='connect-button'>
