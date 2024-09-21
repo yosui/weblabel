@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useAccount, useWriteContract } from 'wagmi';
-import { ethers } from 'ethers';
 
 function EngraveForm() {
   const [name, setName] = useState('');  // 名前の入力状態
