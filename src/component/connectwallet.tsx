@@ -23,7 +23,8 @@ function ConnectWallet() {
             Disconnect
           </button>
         ) : (
-          <button type="button" onClick={() => connect( { connector: injected() })}>
+          <button type="button" onClick={() => connect( { connector: injected()
+          })}>
             Connect
           </button>
         )}

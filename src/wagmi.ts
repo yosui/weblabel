@@ -1,13 +1,14 @@
 import { http, createConfig } from 'wagmi'
 import { mainnet, sepolia } from 'wagmi/chains'
-import { walletConnect } from 'wagmi/connectors'
+import { injected, metaMask, walletConnect } from 'wagmi/connectors'
 
 const projectId = '845dfb9d62b865d64a36a01ec336f5e3w'
 
 export const config = createConfig({
   chains: [mainnet, sepolia],
   connectors: [
-    walletConnect({ projectId }),
+    injected(),
+    metaMask()
     ],
   transports: {
     [mainnet.id]: http(),
