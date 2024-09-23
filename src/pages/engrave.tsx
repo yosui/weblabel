@@ -8,8 +8,10 @@ import ContributorList from '../component/contributorlist';
 function Engrave() {
   return (
     <>
+      <div className="connect-engrave-content">
         <ConnectWallet />
         <EngraveForm />
+      </div>
         <ContributorList />
       
 

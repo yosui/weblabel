@@ -53,6 +53,15 @@ header {
   color: blue;
 } 
 
+.connect-engrave-content{
+  display:flex;
+  justify-content: flex-start;
+}
+
+.connect-wallet{
+  max-width: 50%;
+}
+
 .connect-button {
 
  margin: 16px;
@@ -65,11 +74,39 @@ header {
 
 .select-wallet ul{
   display: block;
+}
 
+.engrave-form{
+  width: 50%;
+}
+
+.engrave-form-content{
+  margin: 0 12px;
 }
 
 .engrave-input{
   margin-top: 16px;
+  padding: 16px;
+}
+
+.engrave-button{
+  margin: 8px 0;
+}
+
+.contributor-list{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.contributor{
+  padding: 8px;
+}
+
+
+.contributor p{
+  color: #2c3e50;
+  font-Weight: bold;
+  font-size: 16px;
 }
 
 .window img{

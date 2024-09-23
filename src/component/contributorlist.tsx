@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { watchContractEvent } from '@wagmi/core';
+import { readContract } from '@wagmi/core';
 import { useAccount } from 'wagmi';
 import { nameStoreAbi } from '../generated'; // ABIのインポート
 import { config } from '../wagmi';
@@ -8,28 +8,36 @@ function ContributorList() {
   const [contributors, setContributors] = useState<string[]>([]);
   const { address } = useAccount();
 
-  // イベントが発生したときの処理を行う関数
-  const handleEvent = (event: any) => {
-    const newContributor = event.args.name;
-    setContributors((prevContributors) => [...prevContributors, newContributor]);
+  // コントラクトから保存された名前を読み取る関数
+  const fetchContributorNames = async () => {
+    if (!address) {
+      console.log('ウォレットが接続されていません');
+      return;
+    }
+
+    try {
+      const names = await readContract(config, {
+        address: '0x539Aa23439FB6aEE08cB0FF2e82d127951f5aC22', // コントラクトアドレス
+        abi: nameStoreAbi,  // コントラクトのABI
+        functionName: 'names',  // 読み取る関数
+        args: [address],  // コントラクトに渡す引数としてウォレットアドレスを渡す
+      });
+
+      // 名前が既に含まれていないか確認してから追加
+      if (names && !contributors.includes(names as string)) {
+        setContributors([names as string]); // 新しいリストとして設定
+      }
+    } catch (error) {
+      console.error('Error fetching contributor names:', error);
+    }
   };
 
-  // コントラクトのイベントを監視する関数
-  const startWatchingEvent = () => {
-    const unwatch = watchContractEvent(config,{
-      address: '0x539Aa23439FB6aEE08cB0FF2e82d127951f5aC22',
-      abi: nameStoreAbi,
-      eventName: 'NameStored',
-    }, handleEvent);
-
-    return unwatch;
-  };
-
-  // useEffectでイベントの監視を設定し、クリーンアップを行う
+  // useEffectでコントラクトからデータを読み取る
   useEffect(() => {
-    const unwatch = startWatchingEvent();
-    return () => unwatch();  // クリーンアップ処理
-  }, [config]);
+    if (address) {
+      fetchContributorNames();
+    }
+  }, [address]);
 
   return (
     <div className="window" style={{ maxWidth: '800px' }}>
@@ -37,11 +45,10 @@ function ContributorList() {
         <div className="title-bar-text">Contributors</div>
       </div>
 
-      <p>Description about Contributors</p>
       <div className="contributor-list">
         {contributors.map((contributor, index) => (
           <div className="contributor" key={index}>
-            <p style={{ color: '#2c3e50', fontWeight: 'bold' }}>{contributor}</p>
+            <p>{contributor}, </p>
           </div>
         ))}
       </div>

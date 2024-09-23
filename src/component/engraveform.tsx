@@ -47,13 +47,25 @@ function EngraveForm() {
     }
   };
 
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newName = e.target.value;
+    if (newName.length <= 30) {
+      setName(newName);
+    } else {
+      alert('Name cannot exceed 30 characters');
+    }
+  };
+
   return (
     <>
+    <div className="engrave-form">
       <div className="window" style={{ maxWidth: '800px' }}>
         <div className="title-bar">
-          <div className="title-bar-text">Connect Wallet (EVM only)</div>
+          <div className="title-bar-text">Engrave your name permanently</div>
         </div>
 
+
+      <div className="engrave-form-content">
         <p>Engrave your name for smart contract as a contributor permanently.</p>
         
         <div className="field-row-stacked" style={{ width: '200px' }}>
@@ -62,7 +74,7 @@ function EngraveForm() {
             id="name"
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}  // 名前の入力を追跡
+            onChange={handleNameChange}  // 名前の入力を追跡、30文字以上を禁止
           />
         </div>
         
@@ -76,7 +88,7 @@ function EngraveForm() {
           />
         </div>
 
-        <button
+        <button className="engrave-button"
           onClick={handleEngrave}
           disabled={isLoading}  // トランザクションが進行中の場合、ボタンを無効化
         >
@@ -85,6 +97,9 @@ function EngraveForm() {
 
         {isSuccess && <p>Successfully engraved the name!</p>}
         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+
+        </div>
+      </div>
       </div>
     </>
   );

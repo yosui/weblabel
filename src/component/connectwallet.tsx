@@ -9,6 +9,7 @@ function ConnectWallet() {
 
 
   return (
+    <div className="connect-wallet">
     <div className="window" style={{ maxWidth: '800px' }}>
       <div className="title-bar">
         <div className="title-bar-text">Connect Wallet (EVM only)</div>
@@ -32,6 +33,8 @@ function ConnectWallet() {
 
       <p className="status-bar-field">ChainId: {chainId}</p>
     </div>
+    </div>
+
   );
 }
 
