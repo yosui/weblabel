@@ -11,8 +11,6 @@ function AlbumList() {
             artist={AlbumInfos[0].artist[0].artist}
             image={AlbumInfos[0].image} 
         />
-
-        
     </div>
   );
 }

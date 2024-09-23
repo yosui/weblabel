@@ -1,12 +1,13 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-import {Script, console} from "forge-std/Script.sol";
+import "forge-std/Script.sol";
+import "../src/contracts/Engrave.sol";
 
-contract CounterScript is Script {
-    function setUp() public {}
-
-    function run() public {
-        vm.broadcast();
+contract Engrave is Script {
+    function run() external {
+        vm.startBroadcast();
+        new NameStore();
+        vm.stopBroadcast();
     }
 }
