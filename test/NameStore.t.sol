@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import {Test, console} from "forge-std/Test.sol";
-import {NameStore} from "../src/contracts/Engrave.sol";
+import {Test, console} from "../lib/forge-std/src/Test.sol";
+import {NameStore} from "../src/contracts/NameStore.sol";
 
 contract NameStoreTest is Test {
     NameStore public nameStore;

@@ -1,18 +1,15 @@
 import { http, createConfig } from 'wagmi'
 import { mainnet, sepolia } from 'wagmi/chains'
-import { injected, metaMask, walletConnect } from 'wagmi/connectors'
-
-const projectId = '845dfb9d62b865d64a36a01ec336f5e3w'
+import { injected, metaMask } from 'wagmi/connectors'
 
 export const config = createConfig({
   chains: [mainnet, sepolia],
   connectors: [
-    injected(),
-    metaMask()
+    injected()
     ],
   transports: {
-    [mainnet.id]: http(),
-    [sepolia.id]: http(),
+    [mainnet.id]: http('https://mainnet.infura.io/v3/a36d0802465e413ab9464be0ac68bc80'),
+    [sepolia.id]: http('https://sepolia.infura.io/v3/a36d0802465e413ab9464be0ac68bc80'),
   },
 })
 
