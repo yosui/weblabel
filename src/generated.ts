@@ -291,6 +291,20 @@ export const nameStoreAbi = [
   { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
   {
     type: 'function',
+    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    name: 'contributors',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'getAllNames',
+    outputs: [{ name: '', internalType: 'string[]', type: 'string[]' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
     inputs: [
       { name: '_contributor', internalType: 'address', type: 'address' },
     ],
@@ -671,6 +685,21 @@ export const useSimulateIMulticall3TryBlockAndAggregate =
  */
 export const useReadNameStore = /*#__PURE__*/ createUseReadContract({
   abi: nameStoreAbi,
+})
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreAbi}__ and `functionName` set to `"contributors"`
+ */
+export const useReadNameStoreContributors = /*#__PURE__*/ createUseReadContract(
+  { abi: nameStoreAbi, functionName: 'contributors' },
+)
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreAbi}__ and `functionName` set to `"getAllNames"`
+ */
+export const useReadNameStoreGetAllNames = /*#__PURE__*/ createUseReadContract({
+  abi: nameStoreAbi,
+  functionName: 'getAllNames',
 })
 
 /**

@@ -17,7 +17,7 @@ function ContributorList() {
 
     try {
       const names = await readContract(config, {
-        address: '0x539Aa23439FB6aEE08cB0FF2e82d127951f5aC22', // コントラクトアドレス
+        address: '0xD8018674aE71b0A73706EcB99aE0EeBb71EdeFF9', // コントラクトアドレス
         abi: nameStoreAbi,  // コントラクトのABI
         functionName: 'names',  // 読み取る関数
         args: [address],  // コントラクトに渡す引数としてウォレットアドレスを渡す

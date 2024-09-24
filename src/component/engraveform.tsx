@@ -34,7 +34,7 @@ function EngraveForm() {
 
       if (window.confirm(`Engrave this name?: ${name}`)) {
         await writeContractAsync({
-          address: "0x539Aa23439FB6aEE08cB0FF2e82d127951f5aC22", // contract address here
+          address: "0xD8018674aE71b0A73706EcB99aE0EeBb71EdeFF9", // contract address here
           value: parseEther(ethAmount.toString()),
           args: [name]
         });  // トランザクションの送信
