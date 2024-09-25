@@ -8,10 +8,10 @@ function ContributorList() {
   const [contributors, setContributors] = useState<string[]>([]);
   const { address } = useAccount();
 
-  // コントラクトから保存された名前を読み取る関数
+  // コントラクトから保存されたすべての名前を読み取る関数
   const fetchContributorNames = async () => {
     if (!address) {
-      console.log('ウォレットが接続されていません');
+      console.log('Please connect wallet');
       return;
     }
 
@@ -19,24 +19,21 @@ function ContributorList() {
       const names = await readContract(config, {
         address: '0x21DAe579bD966EA6c406f23A42bcDC2b18506CFa', // コントラクトアドレス
         abi: nameStoreAbi,  // コントラクトのABI
-        functionName: 'names',  // 読み取る関数
-        args: [address],  // コントラクトに渡す引数としてウォレットアドレスを渡す
+        functionName: 'getAllNames',  // すべての名前を取得する関数
       });
 
-      // 名前が既に含まれていないか確認してから追加
-      if (names && !contributors.includes(names as string)) {
-        setContributors([names as string]); // 新しいリストとして設定
+      // 取得した名前を配列として状態に設定
+      if (names) {
+        setContributors(names as string[]); // 配列として設定
       }
     } catch (error) {
-      console.error('Error fetching contributor names:', error);
+      console.error('Error fetching all contributor names:', error);
     }
   };
 
   // useEffectでコントラクトからデータを読み取る
   useEffect(() => {
-    if (address) {
-      fetchContributorNames();
-    }
+    fetchContributorNames();
   }, [address]);
 
   return (

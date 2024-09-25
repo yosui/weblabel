@@ -66,7 +66,7 @@ function EngraveForm() {
 
 
       <div className="engrave-form-content">
-        <p>Engrave your name for smart contract as a contributor permanently.</p>
+        <p>Engrave your name for smart contract as a contributor permanently.(1 address, 1 name)</p>
         
         <div className="field-row-stacked" style={{ width: '200px' }}>
           <label htmlFor="name">Name: </label>

@@ -6,10 +6,15 @@ import "../src/contracts/NameStore.sol";
 
 contract DeployNameStore is Script {
     function run() external {
-        vm.startBroadcast();
-        new NameStore();
+
+        // NameStoreコントラクトのインスタンスをデプロイ
+        NameStore nameStore = new NameStore();
+
+        // デプロイされたコントラクトアドレスをログに出力
+        console.log("Contract deployed at:", address(nameStore));
+
+        // ブロードキャストを終了
         vm.stopBroadcast();
     }
 }
-
 

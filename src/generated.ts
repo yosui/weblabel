@@ -6,41 +6,6 @@ import {
 } from 'wagmi/codegen'
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Counter
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-export const counterAbi = [
-  {
-    type: 'function',
-    inputs: [],
-    name: 'decrement',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'increment',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'number',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'newNumber', internalType: 'uint256', type: 'uint256' }],
-    name: 'setNumber',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-] as const
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // IMulticall3
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -382,88 +347,455 @@ export const nameStoreAbi = [
 ] as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// React
+// NameStoreTest
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link counterAbi}__
- */
-export const useReadCounter = /*#__PURE__*/ createUseReadContract({
-  abi: counterAbi,
-})
+export const nameStoreTestAbi = [
+  {
+    type: 'function',
+    inputs: [],
+    name: 'IS_TEST',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'excludeArtifacts',
+    outputs: [
+      {
+        name: 'excludedArtifacts_',
+        internalType: 'string[]',
+        type: 'string[]',
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'excludeContracts',
+    outputs: [
+      {
+        name: 'excludedContracts_',
+        internalType: 'address[]',
+        type: 'address[]',
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'excludeSelectors',
+    outputs: [
+      {
+        name: 'excludedSelectors_',
+        internalType: 'struct StdInvariant.FuzzSelector[]',
+        type: 'tuple[]',
+        components: [
+          { name: 'addr', internalType: 'address', type: 'address' },
+          { name: 'selectors', internalType: 'bytes4[]', type: 'bytes4[]' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'excludeSenders',
+    outputs: [
+      {
+        name: 'excludedSenders_',
+        internalType: 'address[]',
+        type: 'address[]',
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'failed',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'nameStore',
+    outputs: [
+      { name: '', internalType: 'contract NameStore', type: 'address' },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'owner',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'setUp',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'targetArtifactSelectors',
+    outputs: [
+      {
+        name: 'targetedArtifactSelectors_',
+        internalType: 'struct StdInvariant.FuzzArtifactSelector[]',
+        type: 'tuple[]',
+        components: [
+          { name: 'artifact', internalType: 'string', type: 'string' },
+          { name: 'selectors', internalType: 'bytes4[]', type: 'bytes4[]' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'targetArtifacts',
+    outputs: [
+      {
+        name: 'targetedArtifacts_',
+        internalType: 'string[]',
+        type: 'string[]',
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'targetContracts',
+    outputs: [
+      {
+        name: 'targetedContracts_',
+        internalType: 'address[]',
+        type: 'address[]',
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'targetInterfaces',
+    outputs: [
+      {
+        name: 'targetedInterfaces_',
+        internalType: 'struct StdInvariant.FuzzInterface[]',
+        type: 'tuple[]',
+        components: [
+          { name: 'addr', internalType: 'address', type: 'address' },
+          { name: 'artifacts', internalType: 'string[]', type: 'string[]' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'targetSelectors',
+    outputs: [
+      {
+        name: 'targetedSelectors_',
+        internalType: 'struct StdInvariant.FuzzSelector[]',
+        type: 'tuple[]',
+        components: [
+          { name: 'addr', internalType: 'address', type: 'address' },
+          { name: 'selectors', internalType: 'bytes4[]', type: 'bytes4[]' },
+        ],
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'targetSenders',
+    outputs: [
+      {
+        name: 'targetedSenders_',
+        internalType: 'address[]',
+        type: 'address[]',
+      },
+    ],
+    stateMutability: 'view',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'testFail_WithdrawByNonOwner',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'test_StoreName',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'test_WithdrawByOwner',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'user',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: '', internalType: 'string', type: 'string', indexed: false },
+    ],
+    name: 'log',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: '', internalType: 'address', type: 'address', indexed: false },
+    ],
+    name: 'log_address',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'val',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
+        indexed: false,
+      },
+    ],
+    name: 'log_array',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'val',
+        internalType: 'int256[]',
+        type: 'int256[]',
+        indexed: false,
+      },
+    ],
+    name: 'log_array',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'val',
+        internalType: 'address[]',
+        type: 'address[]',
+        indexed: false,
+      },
+    ],
+    name: 'log_array',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: '', internalType: 'bytes', type: 'bytes', indexed: false },
+    ],
+    name: 'log_bytes',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: '', internalType: 'bytes32', type: 'bytes32', indexed: false },
+    ],
+    name: 'log_bytes32',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: '', internalType: 'int256', type: 'int256', indexed: false },
+    ],
+    name: 'log_int',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      { name: 'val', internalType: 'address', type: 'address', indexed: false },
+    ],
+    name: 'log_named_address',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      {
+        name: 'val',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
+        indexed: false,
+      },
+    ],
+    name: 'log_named_array',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      {
+        name: 'val',
+        internalType: 'int256[]',
+        type: 'int256[]',
+        indexed: false,
+      },
+    ],
+    name: 'log_named_array',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      {
+        name: 'val',
+        internalType: 'address[]',
+        type: 'address[]',
+        indexed: false,
+      },
+    ],
+    name: 'log_named_array',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      { name: 'val', internalType: 'bytes', type: 'bytes', indexed: false },
+    ],
+    name: 'log_named_bytes',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      { name: 'val', internalType: 'bytes32', type: 'bytes32', indexed: false },
+    ],
+    name: 'log_named_bytes32',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      { name: 'val', internalType: 'int256', type: 'int256', indexed: false },
+      {
+        name: 'decimals',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'log_named_decimal_int',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      { name: 'val', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: 'decimals',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'log_named_decimal_uint',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      { name: 'val', internalType: 'int256', type: 'int256', indexed: false },
+    ],
+    name: 'log_named_int',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      { name: 'val', internalType: 'string', type: 'string', indexed: false },
+    ],
+    name: 'log_named_string',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'key', internalType: 'string', type: 'string', indexed: false },
+      { name: 'val', internalType: 'uint256', type: 'uint256', indexed: false },
+    ],
+    name: 'log_named_uint',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: '', internalType: 'string', type: 'string', indexed: false },
+    ],
+    name: 'log_string',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: '', internalType: 'uint256', type: 'uint256', indexed: false },
+    ],
+    name: 'log_uint',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: '', internalType: 'bytes', type: 'bytes', indexed: false },
+    ],
+    name: 'logs',
+  },
+] as const
 
-/**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link counterAbi}__ and `functionName` set to `"number"`
- */
-export const useReadCounterNumber = /*#__PURE__*/ createUseReadContract({
-  abi: counterAbi,
-  functionName: 'number',
-})
-
-/**
- * Wraps __{@link useWriteContract}__ with `abi` set to __{@link counterAbi}__
- */
-export const useWriteCounter = /*#__PURE__*/ createUseWriteContract({
-  abi: counterAbi,
-})
-
-/**
- * Wraps __{@link useWriteContract}__ with `abi` set to __{@link counterAbi}__ and `functionName` set to `"decrement"`
- */
-export const useWriteCounterDecrement = /*#__PURE__*/ createUseWriteContract({
-  abi: counterAbi,
-  functionName: 'decrement',
-})
-
-/**
- * Wraps __{@link useWriteContract}__ with `abi` set to __{@link counterAbi}__ and `functionName` set to `"increment"`
- */
-export const useWriteCounterIncrement = /*#__PURE__*/ createUseWriteContract({
-  abi: counterAbi,
-  functionName: 'increment',
-})
-
-/**
- * Wraps __{@link useWriteContract}__ with `abi` set to __{@link counterAbi}__ and `functionName` set to `"setNumber"`
- */
-export const useWriteCounterSetNumber = /*#__PURE__*/ createUseWriteContract({
-  abi: counterAbi,
-  functionName: 'setNumber',
-})
-
-/**
- * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link counterAbi}__
- */
-export const useSimulateCounter = /*#__PURE__*/ createUseSimulateContract({
-  abi: counterAbi,
-})
-
-/**
- * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link counterAbi}__ and `functionName` set to `"decrement"`
- */
-export const useSimulateCounterDecrement =
-  /*#__PURE__*/ createUseSimulateContract({
-    abi: counterAbi,
-    functionName: 'decrement',
-  })
-
-/**
- * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link counterAbi}__ and `functionName` set to `"increment"`
- */
-export const useSimulateCounterIncrement =
-  /*#__PURE__*/ createUseSimulateContract({
-    abi: counterAbi,
-    functionName: 'increment',
-  })
-
-/**
- * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link counterAbi}__ and `functionName` set to `"setNumber"`
- */
-export const useSimulateCounterSetNumber =
-  /*#__PURE__*/ createUseSimulateContract({
-    abi: counterAbi,
-    functionName: 'setNumber',
-  })
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// React
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link iMulticall3Abi}__
@@ -797,4 +1129,395 @@ export const useWatchNameStoreWithdrawnEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: nameStoreAbi,
     eventName: 'Withdrawn',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__
+ */
+export const useReadNameStoreTest = /*#__PURE__*/ createUseReadContract({
+  abi: nameStoreTestAbi,
+})
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"IS_TEST"`
+ */
+export const useReadNameStoreTestIsTest = /*#__PURE__*/ createUseReadContract({
+  abi: nameStoreTestAbi,
+  functionName: 'IS_TEST',
+})
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"excludeArtifacts"`
+ */
+export const useReadNameStoreTestExcludeArtifacts =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'excludeArtifacts',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"excludeContracts"`
+ */
+export const useReadNameStoreTestExcludeContracts =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'excludeContracts',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"excludeSelectors"`
+ */
+export const useReadNameStoreTestExcludeSelectors =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'excludeSelectors',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"excludeSenders"`
+ */
+export const useReadNameStoreTestExcludeSenders =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'excludeSenders',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"failed"`
+ */
+export const useReadNameStoreTestFailed = /*#__PURE__*/ createUseReadContract({
+  abi: nameStoreTestAbi,
+  functionName: 'failed',
+})
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"nameStore"`
+ */
+export const useReadNameStoreTestNameStore =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'nameStore',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"owner"`
+ */
+export const useReadNameStoreTestOwner = /*#__PURE__*/ createUseReadContract({
+  abi: nameStoreTestAbi,
+  functionName: 'owner',
+})
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"targetArtifactSelectors"`
+ */
+export const useReadNameStoreTestTargetArtifactSelectors =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'targetArtifactSelectors',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"targetArtifacts"`
+ */
+export const useReadNameStoreTestTargetArtifacts =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'targetArtifacts',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"targetContracts"`
+ */
+export const useReadNameStoreTestTargetContracts =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'targetContracts',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"targetInterfaces"`
+ */
+export const useReadNameStoreTestTargetInterfaces =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'targetInterfaces',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"targetSelectors"`
+ */
+export const useReadNameStoreTestTargetSelectors =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'targetSelectors',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"targetSenders"`
+ */
+export const useReadNameStoreTestTargetSenders =
+  /*#__PURE__*/ createUseReadContract({
+    abi: nameStoreTestAbi,
+    functionName: 'targetSenders',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"user"`
+ */
+export const useReadNameStoreTestUser = /*#__PURE__*/ createUseReadContract({
+  abi: nameStoreTestAbi,
+  functionName: 'user',
+})
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link nameStoreTestAbi}__
+ */
+export const useWriteNameStoreTest = /*#__PURE__*/ createUseWriteContract({
+  abi: nameStoreTestAbi,
+})
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"setUp"`
+ */
+export const useWriteNameStoreTestSetUp = /*#__PURE__*/ createUseWriteContract({
+  abi: nameStoreTestAbi,
+  functionName: 'setUp',
+})
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"testFail_WithdrawByNonOwner"`
+ */
+export const useWriteNameStoreTestTestFailWithdrawByNonOwner =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: nameStoreTestAbi,
+    functionName: 'testFail_WithdrawByNonOwner',
+  })
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"test_StoreName"`
+ */
+export const useWriteNameStoreTestTestStoreName =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: nameStoreTestAbi,
+    functionName: 'test_StoreName',
+  })
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"test_WithdrawByOwner"`
+ */
+export const useWriteNameStoreTestTestWithdrawByOwner =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: nameStoreTestAbi,
+    functionName: 'test_WithdrawByOwner',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link nameStoreTestAbi}__
+ */
+export const useSimulateNameStoreTest = /*#__PURE__*/ createUseSimulateContract(
+  { abi: nameStoreTestAbi },
+)
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"setUp"`
+ */
+export const useSimulateNameStoreTestSetUp =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: nameStoreTestAbi,
+    functionName: 'setUp',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"testFail_WithdrawByNonOwner"`
+ */
+export const useSimulateNameStoreTestTestFailWithdrawByNonOwner =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: nameStoreTestAbi,
+    functionName: 'testFail_WithdrawByNonOwner',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"test_StoreName"`
+ */
+export const useSimulateNameStoreTestTestStoreName =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: nameStoreTestAbi,
+    functionName: 'test_StoreName',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link nameStoreTestAbi}__ and `functionName` set to `"test_WithdrawByOwner"`
+ */
+export const useSimulateNameStoreTestTestWithdrawByOwner =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: nameStoreTestAbi,
+    functionName: 'test_WithdrawByOwner',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__
+ */
+export const useWatchNameStoreTestEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({ abi: nameStoreTestAbi })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log"`
+ */
+export const useWatchNameStoreTestLogEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_address"`
+ */
+export const useWatchNameStoreTestLogAddressEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_address',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_array"`
+ */
+export const useWatchNameStoreTestLogArrayEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_array',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_bytes"`
+ */
+export const useWatchNameStoreTestLogBytesEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_bytes',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_bytes32"`
+ */
+export const useWatchNameStoreTestLogBytes32Event =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_bytes32',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_int"`
+ */
+export const useWatchNameStoreTestLogIntEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_int',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_address"`
+ */
+export const useWatchNameStoreTestLogNamedAddressEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_address',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_array"`
+ */
+export const useWatchNameStoreTestLogNamedArrayEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_array',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_bytes"`
+ */
+export const useWatchNameStoreTestLogNamedBytesEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_bytes',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_bytes32"`
+ */
+export const useWatchNameStoreTestLogNamedBytes32Event =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_bytes32',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_decimal_int"`
+ */
+export const useWatchNameStoreTestLogNamedDecimalIntEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_decimal_int',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_decimal_uint"`
+ */
+export const useWatchNameStoreTestLogNamedDecimalUintEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_decimal_uint',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_int"`
+ */
+export const useWatchNameStoreTestLogNamedIntEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_int',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_string"`
+ */
+export const useWatchNameStoreTestLogNamedStringEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_string',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_named_uint"`
+ */
+export const useWatchNameStoreTestLogNamedUintEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_named_uint',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_string"`
+ */
+export const useWatchNameStoreTestLogStringEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_string',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"log_uint"`
+ */
+export const useWatchNameStoreTestLogUintEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'log_uint',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link nameStoreTestAbi}__ and `eventName` set to `"logs"`
+ */
+export const useWatchNameStoreTestLogsEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: nameStoreTestAbi,
+    eventName: 'logs',
   })
