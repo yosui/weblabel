@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAccount } from 'wagmi';
-import { parseEther } from 'ethers/utils';  // Used to convert ETH to wei
+import { parseEther } from 'viem/utils';
 import { useWriteNameStoreStoreName } from '../generated';  // Import the correct function
 
 function EngraveForm() {
