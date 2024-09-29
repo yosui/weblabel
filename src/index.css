@@ -61,6 +61,7 @@ header {
 
 
 .engrave{
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -100,8 +101,9 @@ header {
 }
 
 .contributor-list{
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 8px;
+  margin-left: 40px;
+  margin-right: 40px;
   height: 40vw;
   width: 80vw;
   }
@@ -109,20 +111,6 @@ header {
 .contributor{
   padding: 0px 8px;
   float: left;
-}
-
-.see-transactions{
-  display: inline-block;
-  text-decoration: underline;
-  color: blue;
-}
-
-.see-transactions a{
-  text-decoration: underline;
-  color: blue;
-  font-size: 6px;
-  margin: 0;
-  padding: 0;
 }
 
 .contributor p{
@@ -317,6 +305,13 @@ audio {
 
 .other-tracks li audio {
   margin-right: 10px;
+}
+
+.other-track span{
+  font-weight: initial;
+  font-size: initial;
+  margin: 5px;
+  
 }
 
 

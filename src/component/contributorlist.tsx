@@ -37,12 +37,9 @@ function ContributorList() {
   }, [address]);
 
   return (
-    <div className="window" style={{ maxWidth: '800px' }}>
+    <div className="window" style={{ maxWidth: '4000px' }}>
       <div className="title-bar">
-        <div className="title-bar-text">Contributors
-          <p className="see-transactions">
-            <a href="url">see all transactions</a>
-          </p>
+        <div className="title-bar-text">Contributors (contract address: 0x21DAe579bD966EA6c406f23A42bcDC2b18506CFa)
           </div>
       </div>
 

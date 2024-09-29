@@ -15,18 +15,6 @@ const AlbumDetail: React.FC = () => {
 
   return (
     <>
-    <div className="window" style={{ maxWidth: '2500px' }}>
-       <div className="title-bar">
-          <div className="title-bar-text">Information</div>
-        </div>
-        <div className="window-body">
-          <ul>
-            <li>
-              We reccomend PC or Android to listen music
-            </li>
-          </ul>
-        </div>
-        </div>
 
     <section id="track-details">
 
@@ -48,10 +36,13 @@ const AlbumDetail: React.FC = () => {
           artistImg={album.artist[0].artistImg} 
           artist={album.artist[0].artist}
           donation1={album.artist[0].donation1}
-        /> 
-        </div>               
+        />        
+        * We reccomend PC or Android to listen music
+        </div>     
+          
       </div>
       </section>
+      
     </>
   );
 };
