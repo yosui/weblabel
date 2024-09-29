@@ -39,13 +39,17 @@ function ContributorList() {
   return (
     <div className="window" style={{ maxWidth: '800px' }}>
       <div className="title-bar">
-        <div className="title-bar-text">Contributors</div>
+        <div className="title-bar-text">Contributors
+          <p className="see-transactions">
+            <a href="url">see all transactions</a>
+          </p>
+          </div>
       </div>
 
       <div className="contributor-list">
         {contributors.map((contributor, index) => (
           <div className="contributor" key={index}>
-            <p>{contributor}, </p>
+            <p>{contributor},　</p>
           </div>
         ))}
       </div>
