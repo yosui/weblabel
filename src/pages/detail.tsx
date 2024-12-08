@@ -27,7 +27,7 @@ const AlbumDetail: React.FC = () => {
             <a href={album.torrent} download>Download(Torrent)</a> 
           </div>
           <div className="download-item">
-            <a href={album.mp3} download="weblabel01.zip">Download(mp3)</a> 
+            <a href={album.mp3} download>Download(mp3)</a> 
           </div>
         </div>    
 
