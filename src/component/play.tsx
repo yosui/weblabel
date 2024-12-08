@@ -24,7 +24,7 @@ const Play: React.FC<PlayProps> = ({ previewUrl }) => {
         Sorry, your browser does not support.
       </audio>
       <div className="play" onClick={handlePlay}>
-        <p>{'Play >'}</p>
+        <p>{'Preview >'}</p>
       </div>
     </>
   );

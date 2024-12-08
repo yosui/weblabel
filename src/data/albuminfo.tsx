@@ -27,7 +27,7 @@ type Album = {
       description: "",
       image: "/assets/image/track/weblabel01.png",
       torrent: "/assets/torrents/Weblabel01.torrent",
-      mp3: "/assets/mp3/Weblabel01(mp3).zip",
+      mp3: "/assets/mp3/weblabel01.zip",
       tracks: [
         {
           name: "Pico Pico",
